@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab02b01e-c635-435a-95d5-7db13b3f181f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/front/app/dashboard/analytics/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/app/dashboard/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/app/dashboard/lifecycle/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/app/dashboard/projects/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/app/dashboard/payments/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/app/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/app/dashboard/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/app/dashboard/analytics/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/app/dashboard/users/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/app/dashboard/lifecycle/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/app/dashboard/contributors/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/app/dashboard/projects/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/app/dashboard/map/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/components/app-sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/components/app-sidebar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/components/nav-main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/components/nav-main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/eslint.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/front/eslint.config.mjs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +50,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/proyectos/publicidad/front/app/dashboard/projects",
+    "last_opened_file_path": "C:/proyectos/publicidad/front/app/dashboard",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -67,10 +64,10 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\proyectos\publicidad\front\app\dashboard" />
       <recent name="C:\proyectos\publicidad\front\app\dashboard\projects" />
       <recent name="C:\proyectos\publicidad\front\app\dashboard\lifecycle" />
       <recent name="C:\proyectos\publicidad\front\app\dashboard\analytics" />
-      <recent name="C:\proyectos\publicidad\front\app\dashboard" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -89,7 +86,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1744540888691</updated>
-      <workItem from="1744540890422" duration="1676000" />
+      <workItem from="1744540890422" duration="6809000" />
     </task>
     <servers />
   </component>

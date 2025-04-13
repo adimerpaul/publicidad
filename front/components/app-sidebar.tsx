@@ -12,10 +12,10 @@ import {
   IconFolder,
   IconHelp,
   IconInnerShadowTop,
-  IconListDetails,
+  IconListDetails, IconMap, IconMoneybag,
   IconReport,
   IconSearch,
-  IconSettings,
+  IconSettings, IconUser,
   IconUsers,
 } from "@tabler/icons-react"
 
@@ -41,29 +41,31 @@ const data = {
   },
   navMain: [
     {
-      title: "Dashboard",
+      title: "Principal",
       url: "/dashboard",
       icon: IconDashboard,
     },
     {
-      title: "Lifecycle",
-      url: "/dashboard/lifecycle",
-      icon: IconListDetails,
-    },
-    {
-      title: "Analytics",
-      url: "/dashboard/analytics",
-      icon: IconChartBar,
-    },
-    {
-      title: "Projects",
-      url: "/dashboard/projects",
-      icon: IconFolder,
-    },
-    {
-      title: "Team",
-      url: "#",
+      title: "Usuarios",
+      url: "/dashboard/users",
       icon: IconUsers,
+    },
+    {
+      title: "Contributentes",
+      url: "/dashboard/contributors",
+      icon: IconUser
+    },
+    {
+      title: "Mapa",
+      url: "/dashboard/map",
+      // icon map
+      icon: IconMap,
+    },
+    {
+      title: "Pagos",
+      url: "/dashboard/payments",
+      // icon de  money
+      icon: IconMoneybag,
     },
   ],
   navClouds: [
