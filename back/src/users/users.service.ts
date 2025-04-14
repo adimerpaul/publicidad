@@ -15,11 +15,16 @@ export class UsersService {
     private jwtService: JwtService,
   ) {}
   async login(body) {
+    // console.error(body.username);
+    if (body.username === undefined) {
+      throw new UnauthorizedException('Usuario no encontrado');
+    }
     const user = await this.usersRepository.findOne({
       where: {
         username: body.username,
       },
     });
+    // console.error(user);
     if (!user) {
       throw new UnauthorizedException('Usuario no encontrado');
     }
