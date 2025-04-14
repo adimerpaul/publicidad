@@ -12,7 +12,7 @@ import {
   IconFolder,
   IconHelp,
   IconInnerShadowTop,
-  IconListDetails, IconMap, IconMoneybag,
+  IconListDetails, IconLogout, IconMap, IconMoneybag,
   IconReport,
   IconSearch,
   IconSettings, IconUser,
@@ -117,21 +117,26 @@ const data = {
     },
   ],
   navSecondary: [
+    // {
+    //   title: "Settings",
+    //   url: "#",
+    //   icon: IconSettings,
+    // },
+    // {
+    //   title: "Get Help",
+    //   url: "#",
+    //   icon: IconHelp,
+    // },
+    // {
+    //   title: "Search",
+    //   url: "#",
+    //   icon: IconSearch,
+    // },
     {
-      title: "Settings",
-      url: "#",
-      icon: IconSettings,
-    },
-    {
-      title: "Get Help",
-      url: "#",
-      icon: IconHelp,
-    },
-    {
-      title: "Search",
-      url: "#",
-      icon: IconSearch,
-    },
+        title: "Salir",
+        url: "#",
+        icon: IconLogout,
+    }
   ],
   documents: [
     {
