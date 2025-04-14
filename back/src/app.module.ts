@@ -18,7 +18,7 @@ import { UsersModule } from './users/users.module';
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
       entities: ['dist/**/*.entity{.ts,.js}'],
-      synchronize: process.env.DB_SYNC === 'true',
+      synchronize: process.env.DB_SYNCHRONIZE === 'true',
       timezone: '-04:00',
     }),
     UsersModule,
