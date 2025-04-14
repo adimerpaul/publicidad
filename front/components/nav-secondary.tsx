@@ -33,7 +33,7 @@ export function NavSecondary({
   const [open, setOpen] = React.useState(false)
   const router = useRouter()
 
-  const handleClick = (item) => () => {
+  const handleClick = (item: any) => () => {
     if (item.title === "Salir") {
       setOpen(true)
     }
