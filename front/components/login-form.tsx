@@ -14,6 +14,7 @@ import {EyeIcon, EyeOffIcon} from "lucide-react";
 import {useEffect, useState} from "react"
 import api from "@/lib/axios";
 import { toast } from "react-toastify"
+import {useRouter} from "next/navigation";
 
 export function LoginForm({
   className,
@@ -21,14 +22,16 @@ export function LoginForm({
 }: React.ComponentProps<"div">) {
 
   const [showPassword, setShowPassword] = useState(false)
+  const [login, setLogin] = useState(false)
+  const router = useRouter()
 
   // handleLogin
     const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        setLogin(true)
         const formData = new FormData(e.currentTarget)
         const username = formData.get("username")
         const password = formData.get("password")
-        // console.log(username, password)
         api.post("/users/login", {
             username,
             password,
@@ -37,25 +40,28 @@ export function LoginForm({
             const user = response.data.user
             localStorage.setItem("token", token)
             localStorage.setItem("user", JSON.stringify(user))
+            toast.success("Bienvenido: " + user.username)
+            router.push("/dashboard")
         }).catch((error) => {
-            // console.error(error.response.data.message)
             toast.error(error.response.data.message)
+        }).finally(() => {
+            setLogin(false)
         })
     }
     useEffect(() => {
-        // console.log("LoginForm mounted")
-        // toast.error("Error al iniciar sesión")
+        const token = localStorage.getItem("token")
+        if (token) {
+            router.push("/dashboard")
+        }
     })
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
         <CardHeader>
           <CardTitle>
-            {/*Login to your account espa;ol*/}
             Iniciar sesión
           </CardTitle>
           <CardDescription>
-            {/*Enter your email below to login to your account*/}
             Ingresa tu correo electrónico para iniciar sesión
           </CardDescription>
         </CardHeader>
@@ -63,14 +69,6 @@ export function LoginForm({
           <form onSubmit={handleLogin}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-3">
-                {/*<Label htmlFor="email">Email</Label>*/}
-                {/*<Input*/}
-                {/*  id="email"*/}
-                {/*  type="email"*/}
-                {/*  placeholder="m@example.com"*/}
-                {/*  required*/}
-                {/*/>*/}
-                {/*username*/}
                 <Label htmlFor="username">Username</Label>
                 <Input
                   id="username"
@@ -107,8 +105,7 @@ export function LoginForm({
                 </div>
               </div>
               <div className="flex flex-col gap-3">
-                <Button type="submit" className="w-full">
-                    {/*Login*/}
+                <Button type="submit" className="w-full" disabled={login}>
                     Iniciar sesión
                 </Button>
                 {/*<Button variant="outline" className="w-full">*/}
