@@ -43,24 +43,72 @@ export class UsersService {
     const userPayload = plainToInstance(User, user);
     return { token, user: userPayload };
   }
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+  async create(body) {
+    const hashedPassword = bcrypt.hashSync(body.password, 10);
+    const user = this.usersRepository.create({
+      ...body,
+      password: hashedPassword,
+    });
+    await this.usersRepository.save(user);
+    return user;
   }
 
-  findAll() {
-    return `This action returns all users`;
+  async findAll() {
+    const users = await this.usersRepository.find();
+    return users.map((user) => plainToInstance(User, user));
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  async findOne(id: number) {
+    const user = await this.usersRepository.findOne({
+      where: {
+        id,
+      },
+    });
+    if (!user) {
+      throw new UnauthorizedException('Usuario no encontrado');
+    }
+    return plainToInstance(User, user);
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  async update(id: number, body) {
+    console.error(body);
+    console.error(id);
+    const user = await this.usersRepository.findOne({
+      where: {
+        id,
+      },
+    });
+    if (!user) {
+      throw new UnauthorizedException('Usuario no encontrado');
+    }
+    let updatedUser;
+    if (body.password === undefined) {
+      updatedUser = await this.usersRepository.save({
+        ...user,
+        ...body,
+      });
+    } else {
+      const hashedPassword = bcrypt.hashSync(body.password, 10);
+      updatedUser = await this.usersRepository.save({
+        ...user,
+        ...body,
+        password: hashedPassword,
+      });
+    }
+    return plainToInstance(User, updatedUser);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  async remove(id: number) {
+    const user = await this.usersRepository.findOne({
+      where: {
+        id,
+      },
+    });
+    if (!user) {
+      throw new UnauthorizedException('Usuario no encontrado');
+    }
+    await this.usersRepository.softDelete(id);
+    return plainToInstance(User, user);
   }
   async migracion() {
     await this.usersRepository.query('TRUNCATE TABLE users');
